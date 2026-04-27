@@ -1,0 +1,69 @@
+---
+const steps = [
+  { num: '1', icon: '💬', title: 'WhatsApp 查詢', desc: '透過 WhatsApp 描述手機問題，我哋會即時回覆初步報價。' },
+  { num: '2', icon: '🔍', title: '現場檢測', desc: '帶手機到深水埗深之都門市，技師即場檢測確認維修方案。' },
+  { num: '3', icon: '✅', title: '即場維修', desc: '確認報價後即場維修，大部分問題即日完成交還。' },
+];
+---
+
+<section class="section" id="process">
+  <div class="container">
+    <h2 class="section-title">維修流程</h2>
+    <p class="section-subtitle">簡單三步，快捷維修</p>
+    <div class="process-steps">
+      {steps.map((step, i) => (
+        <div class="step">
+          <div class="step-num">{step.num}</div>
+          <span class="step-icon">{step.icon}</span>
+          <h3 class="step-title">{step.title}</h3>
+          <p class="step-desc">{step.desc}</p>
+          {i < steps.length - 1 && <div class="step-arrow" aria-hidden="true">→</div>}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .process-steps {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    position: relative;
+  }
+  .step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+  }
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    margin-bottom: 16px;
+  }
+  .step-icon { font-size: 2rem; display: block; margin-bottom: 12px; }
+  .step-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+  .step-desc { color: var(--ink-muted); font-size: 0.95rem; }
+  .step-arrow {
+    position: absolute;
+    right: -24px;
+    top: 24px;
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .process-steps { flex-direction: column; align-items: center; }
+    .step-arrow { display: none; }
+    .step { max-width: 400px; }
+  }
+</style>

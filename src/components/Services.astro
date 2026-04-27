@@ -1,0 +1,79 @@
+---
+const services = [
+  {
+    icon: '📱',
+    title: '爆玻璃維修',
+    desc: '螢幕玻璃碎裂但觸控正常？我哋可以單獨更換玻璃面板，手機照常使用。',
+  },
+  {
+    icon: '📷',
+    title: '鏡頭更換',
+    desc: '鏡頭無法開啟、影像抖動、出現黑影或黑點？專業更換恢復清晰拍攝。',
+  },
+  {
+    icon: '🖥️',
+    title: '爆液晶維修',
+    desc: '觸控間歇性失靈、嚴重時完全無反應無畫面？更換液晶總成即刻修復。',
+  },
+  {
+    icon: '🔘',
+    title: '按鍵維修',
+    desc: 'Home 鍵、開關機鍵無反應或失靈？精準維修恢復按鍵功能。',
+  },
+  {
+    icon: '🔋',
+    title: '更換電池',
+    desc: '電池損耗老化、續航大幅下降？適時更換電池延長手機壽命。',
+  },
+  {
+    icon: '🔧',
+    title: '其他維修',
+    desc: 'WiFi 功能失靈、指紋認證故障、充電位接觸不良等問題，歡迎查詢。',
+  },
+];
+---
+
+<section class="section section-alt" id="services">
+  <div class="container">
+    <h2 class="section-title">維修服務</h2>
+    <p class="section-subtitle">涵蓋手機常見外觀及功能問題，專業維修即日完成</p>
+    <div class="services-grid">
+      {services.map(s => (
+        <div class="service-card">
+          <span class="service-icon">{s.icon}</span>
+          <h3 class="service-title">{s.title}</h3>
+          <p class="service-desc">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .service-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .service-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+  .service-icon { font-size: 2.4rem; display: block; margin-bottom: 16px; }
+  .service-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+  .service-desc { color: var(--ink-muted); font-size: 0.95rem; line-height: 1.7; }
+
+  @media (max-width: 768px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

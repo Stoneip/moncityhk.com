@@ -1,0 +1,58 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">📱 MonCity 手機維修</span>
+      <p class="footer-addr">深水埗長沙灣道226號 深之都1樓230號鋪</p>
+      <p class="footer-phone"><a href="tel:+85269960711">6996 0711</a></p>
+    </div>
+    <div class="footer-links">
+      <a href="/#services">服務</a>
+      <a href="/#faq">常見問題</a>
+      <a href="/#contact">聯絡</a>
+      <a href="/privacy/">私隱政策</a>
+    </div>
+    <div class="footer-copy">
+      <p>&copy; {year} MonCity 手機維修. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--ink);
+    color: #ccc;
+    padding: 48px 0 32px;
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: start;
+  }
+  .footer-logo { font-weight: 700; color: #fff; font-size: 1.1rem; }
+  .footer-addr, .footer-phone { font-size: 0.9rem; margin-top: 8px; }
+  .footer-phone a { color: #ccc; }
+  .footer-phone a:hover { color: #fff; }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+  .footer-links a { color: #ccc; font-size: 0.9rem; }
+  .footer-links a:hover { color: #fff; }
+  .footer-copy {
+    grid-column: 1 / -1;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    font-size: 0.85rem;
+    color: #888;
+  }
+
+  @media (max-width: 768px) {
+    .footer-inner { grid-template-columns: 1fr; }
+    .footer-links { flex-wrap: wrap; gap: 16px; }
+  }
+</style>

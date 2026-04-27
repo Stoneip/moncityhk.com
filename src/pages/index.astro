@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Process from '../components/Process.astro';
+import FAQ from '../components/FAQ.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="MonCity 手機維修 | 深水埗專業手機外觀維修"
+  description="MonCity 手機維修位於深水埗深之都，提供爆玻璃、換鏡頭、爆液晶、按鍵維修、換電池等專業手機維修服務。即日維修，WhatsApp 預約。"
+>
+  <Header />
+  <main id="main">
+    <Hero />
+    <Services />
+    <Process />
+    <FAQ />
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>

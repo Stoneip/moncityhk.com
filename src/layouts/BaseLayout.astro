@@ -1,0 +1,79 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  pathname?: string;
+}
+
+const { title, description, pathname = '' } = Astro.props;
+const canonicalURL = new URL(pathname, Astro.site);
+const siteName = 'MonCity 手機維修';
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': 'https://moncityhk.com/#business',
+  name: 'MonCity 手機維修',
+  description: '香港深水埗專業手機外觀維修服務',
+  url: 'https://moncityhk.com',
+  telephone: '+852-6996-0711',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '長沙灣道226號深之都1樓230號鋪',
+    addressLocality: '深水埗',
+    addressRegion: '九龍',
+    addressCountry: 'HK',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 22.3316,
+    longitude: 114.1625,
+  },
+  areaServed: { '@type': 'City', name: 'Hong Kong' },
+  priceRange: '$$',
+  image: 'https://moncityhk.com/og-share.png',
+};
+
+const webSiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: siteName,
+  url: 'https://moncityhk.com',
+};
+---
+
+<!doctype html>
+<html lang="zh-HK">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="zh_HK" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="alternate" hreflang="zh-HK" href={canonicalURL} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳至主要內容</a>
+    <slot />
+  </body>
+</html>

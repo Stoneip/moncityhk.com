@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="私隱政策 | MonCity 手機維修"
+  description="MonCity 手機維修的私隱政策，說明我們如何收集、使用及保護您的個人資料。"
+  pathname="/privacy/"
+>
+  <Header />
+  <main id="main" class="section">
+    <div class="container" style="max-width: 800px;">
+      <h1>私隱政策</h1>
+      <p style="color: var(--ink-muted); margin: 16px 0 32px;">最後更新：2026 年 4 月</p>
+
+      <h2>資料收集</h2>
+      <p>當你透過 WhatsApp 或電話聯絡我哋時，我哋可能會收集你嘅聯絡資料（如電話號碼）及手機維修相關資訊。</p>
+
+      <h2>資料用途</h2>
+      <p>收集嘅資料僅用於：</p>
+      <ul>
+        <li>回覆你嘅查詢</li>
+        <li>提供維修報價及服務</li>
+        <li>維修完成後嘅跟進聯絡</li>
+      </ul>
+
+      <h2>資料保護</h2>
+      <p>我哋會採取合理措施保護你嘅個人資料，不會向第三方出售或分享你嘅資料。</p>
+
+      <h2>Cookie</h2>
+      <p>本網站可能使用分析工具（如 Google Analytics）收集匿名訪問數據以改善網站體驗。</p>
+
+      <h2>聯絡我哋</h2>
+      <p>如對私隱政策有任何疑問，請透過 <a href="https://wa.me/85269960711" target="_blank" rel="noopener">WhatsApp</a> 或致電 <a href="tel:+85269960711">6996 0711</a> 聯絡。</p>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  h1 { font-size: 2rem; font-weight: 700; }
+  h2 { font-size: 1.3rem; font-weight: 600; margin: 32px 0 12px; }
+  p, li { color: var(--ink-muted); line-height: 1.8; margin-bottom: 12px; }
+  ul { padding-left: 24px; }
+</style>

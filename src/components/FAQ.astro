@@ -1,0 +1,92 @@
+---
+const faqs = [
+  {
+    q: '維修需要幾耐？',
+    a: '大部分維修項目可以即日完成，一般需時 30 分鐘至 2 小時不等，視乎問題複雜程度。',
+  },
+  {
+    q: '維修期間可以等嗎？',
+    a: '可以。我哋位於深水埗深之都，附近有商場同食肆，你可以喺附近行下或者喺店內等候。',
+  },
+  {
+    q: '維修後有冇保養？',
+    a: '所有維修項目均提供保養期，具體保養時長視乎維修類型，詳情請透過 WhatsApp 查詢。',
+  },
+  {
+    q: '支援邊啲手機品牌？',
+    a: '主要支援 iPhone 及 Samsung 系列，其他品牌如 Huawei、Xiaomi 等歡迎查詢。',
+  },
+  {
+    q: '需要預約嗎？',
+    a: '建議透過 WhatsApp 預先查詢同預約，方便我哋預留時間同準備相關零件。Walk-in 亦歡迎。',
+  },
+  {
+    q: '維修會唔會影響手機資料？',
+    a: '外觀維修（如換玻璃、換電池）一般唔會影響手機內嘅資料，但建議維修前先做好資料備份。',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<section class="section section-alt" id="faq">
+  <div class="container">
+    <h2 class="section-title">常見問題</h2>
+    <p class="section-subtitle">維修前你可能想知道嘅嘢</p>
+    <div class="faq-list">
+      {faqs.map(f => (
+        <details class="faq-item">
+          <summary class="faq-q">{f.q}</summary>
+          <div class="faq-a">{f.a}</div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<style>
+  .faq-list { max-width: 800px; margin: 0 auto; }
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    background: var(--paper);
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 20px 24px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .faq-q::after {
+    content: '+';
+    font-size: 1.4rem;
+    color: var(--primary);
+    font-weight: 700;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .faq-item[open] .faq-q::after {
+    content: '−';
+  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-a {
+    padding: 0 24px 20px;
+    color: var(--ink-muted);
+    line-height: 1.8;
+  }
+</style>

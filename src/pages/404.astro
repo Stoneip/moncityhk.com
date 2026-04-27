@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="404 找不到頁面 | MonCity 手機維修"
+  description="你找的頁面不存在。"
+  pathname="/404/"
+>
+  <Header />
+  <main id="main" class="section" style="text-align: center; min-height: 50vh; display: flex; align-items: center; justify-content: center;">
+    <div>
+      <h1 style="font-size: 4rem; font-weight: 800; color: var(--primary); margin-bottom: 16px;">404</h1>
+      <p style="font-size: 1.2rem; color: var(--ink-muted); margin-bottom: 32px;">搵唔到呢個頁面</p>
+      <a href="/" class="btn btn-primary">返回首頁</a>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
