@@ -33,9 +33,9 @@ const navLinks = [
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255,255,255,0.95);
+    background: rgba(204,0,0,0.97);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
+    border-bottom: none;
     height: var(--header-h);
   }
   .header-inner {
@@ -50,23 +50,23 @@ const navLinks = [
     gap: 8px;
     font-weight: 700;
     font-size: 1.2rem;
-    color: var(--ink);
+    color: #fff;
   }
-  .logo:hover { color: var(--primary); }
+  .logo:hover { color: #ffe0e0; }
   .logo-icon { font-size: 1.5rem; }
-  .logo-sub { color: var(--ink-muted); font-weight: 400; font-size: 0.9rem; }
+  .logo-sub { color: rgba(255,255,255,0.85); font-weight: 400; font-size: 0.9rem; }
   .nav {
     display: flex;
     align-items: center;
     gap: 24px;
   }
   .nav-link {
-    color: var(--ink-muted);
+    color: rgba(255,255,255,0.9);
     font-weight: 500;
     font-size: 0.95rem;
     transition: color 0.2s;
   }
-  .nav-link:hover { color: var(--primary); }
+  .nav-link:hover { color: #fff; }
   .btn-sm { padding: 8px 20px; font-size: 0.9rem; }
   .hamburger {
     display: none;
@@ -81,7 +81,7 @@ const navLinks = [
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--ink);
+    background: #fff;
     transition: transform 0.3s, opacity 0.3s;
   }
 
@@ -93,11 +93,11 @@ const navLinks = [
       top: var(--header-h);
       left: 0;
       right: 0;
-      background: var(--paper);
+      background: var(--primary);
       flex-direction: column;
       padding: 20px;
       gap: 16px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: none;
       box-shadow: var(--shadow-lg);
     }
     .nav.open { display: flex; }

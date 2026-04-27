@@ -1,0 +1,27 @@
+# MonCity 手機維修 (MONCITY 換Mon城維修中心)
+
+> 香港深水埗專業手機外觀維修服務。提供爆玻璃維修、鏡頭更換、液晶維修、按鍵維修、電池更換等服務。
+
+## 基本資料
+
+- 名稱：MonCity 手機維修 (MONCITY 換Mon城維修中心)
+- 地址：香港深水埗長沙灣道226號，深之都1樓230號鋪
+- 交通：深水埗站 D2 出口，賽馬會側
+- 電話/WhatsApp：+852 6996 0711
+- 網站：https://moncityhk.com
+- Facebook：https://www.facebook.com/moncityhk/
+- Google Maps：https://maps.app.goo.gl/rtoUcQDWsXnkjuTSA
+
+## 服務項目
+
+- 爆玻璃維修：螢幕玻璃碎裂，不影響觸控功能
+- 鏡頭更換：鏡頭無法開啟、影像抖動、黑影黑點
+- 爆液晶維修：觸控間歇性失靈或完全無反應
+- 按鍵維修：Home鍵、開關機鍵無反應或失靈
+- 電池更換：電池損耗老化、續航下降
+- 其他維修：WiFi失靈、指紋認證故障、充電位接觸不良
+
+## 頁面
+
+- [首頁](https://moncityhk.com/): 服務總覽、維修流程、顧客評價、聯絡資訊
+- [私隱政策](https://moncityhk.com/privacy/): 個人資料收集及使用政策
