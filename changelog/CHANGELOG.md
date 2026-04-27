@@ -1,5 +1,25 @@
 # Changelog
 
+## v0.2.0 (2026-04-27)
+
+### 變更
+- 主色由藍色 (#0066cc) 改為紅色 (#cc0000)，配合品牌形象
+- CTA 按鈕、連結、流程步驟等所有 accent 元素改為紅色
+- Hero 背景漸層改為淡紅色
+
+### 新增
+- Google Analytics 4 追蹤（G-7B53J3CMY2）
+- 顧客評價區（Reviews section）：Google Business badge + 3 張評價卡片
+- Google Business 連結整合（MONCITY 換Mon城維修中心）
+- /sitemap.xml → /sitemap-index.xml 301 redirect（方便 Google Search Console 提交）
+- Header 加入「評價」導航連結
+- LocalBusiness schema 加入 sameAs（Google Maps）+ alternateName
+
+### 修正
+- Google Maps embed 更新為正確嘅 MONCITY Place ID
+- 坐標更精確（22.3314439, 114.1618173）
+- favicon 改為紅色
+
 ## v0.1.0 (2026-04-27)
 
 ### 新增

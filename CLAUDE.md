@@ -13,7 +13,7 @@
 ```
 src/
 ├── layouts/BaseLayout.astro    # 共用 layout（SEO, JSON-LD）
-├── components/                 # Header, Hero, Services, Process, FAQ, Contact, Footer
+├── components/                 # Header, Hero, Services, Process, Reviews, FAQ, Contact, Footer
 ├── pages/                      # index, privacy, 404
 └── styles/global.css           # Design tokens + 全局樣式
 public/                         # favicon, robots.txt
@@ -36,5 +36,12 @@ Push to `main` branch → Cloudflare Pages 自動部署。
 - **Cloudflare Account**: Stoneip@gmail.com (Account ID: b4812f835e4370782067c26d741714f3)
 - **Zone ID**: 50451c63752fb2aeb58cacca350f6d77
 
+## Analytics
+- **GA4**: G-7B53J3CMY2
+
+## 設計
+- **主色**: 紅色 (#cc0000)
+- **Google Business**: https://maps.app.goo.gl/rtoUcQDWsXnkjuTSA
+
 ## 版本
-v0.1.0
+v0.2.0
