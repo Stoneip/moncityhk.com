@@ -1,9 +1,9 @@
 :root {
-  --primary: #0066cc;
-  --primary-dark: #004d99;
-  --primary-light: #e6f0ff;
-  --accent: #ff6b35;
-  --accent-hover: #e55a28;
+  --primary: #cc0000;
+  --primary-dark: #a30000;
+  --primary-light: #fff0f0;
+  --accent: #cc0000;
+  --accent-hover: #a30000;
   --ink: #1a1a1a;
   --ink-muted: #555;
   --ink-soft: #888;

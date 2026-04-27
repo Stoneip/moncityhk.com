@@ -13,7 +13,8 @@ const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   '@id': 'https://moncityhk.com/#business',
-  name: 'MonCity 手機維修',
+  name: 'MONCITY 換Mon城維修中心',
+  alternateName: 'MonCity 手機維修',
   description: '香港深水埗專業手機外觀維修服務',
   url: 'https://moncityhk.com',
   telephone: '+852-6996-0711',
@@ -26,12 +27,13 @@ const localBusinessSchema = {
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 22.3316,
-    longitude: 114.1625,
+    latitude: 22.3314439,
+    longitude: 114.1618173,
   },
   areaServed: { '@type': 'City', name: 'Hong Kong' },
   priceRange: '$$',
   image: 'https://moncityhk.com/og-share.png',
+  sameAs: ['https://maps.app.goo.gl/rtoUcQDWsXnkjuTSA'],
 };
 
 const webSiteSchema = {
@@ -71,6 +73,14 @@ const webSiteSchema = {
 
     <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7B53J3CMY2"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7B53J3CMY2');
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">跳至主要內容</a>
