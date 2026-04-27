@@ -21,7 +21,8 @@ const googleMapsUrl = 'https://maps.app.goo.gl/rtoUcQDWsXnkjuTSA';
             <span class="stars">★★★★★</span>
           </div>
         </div>
-        <a href={googleMapsUrl} class="btn btn-outline btn-sm" target="_blank" rel="noopener">
+        <a href={googleMapsUrl} class="btn btn-outline btn-sm" target="_blank" rel="noopener"
+          onclick="gtag('event','google_review_click',{event_category:'social',event_label:'reviews_badge'})">
           查看所有評價
         </a>
       </div>
@@ -46,7 +47,8 @@ const googleMapsUrl = 'https://maps.app.goo.gl/rtoUcQDWsXnkjuTSA';
     </div>
 
     <div class="reviews-cta">
-      <a href={googleMapsUrl} class="btn btn-primary" target="_blank" rel="noopener">
+      <a href={googleMapsUrl} class="btn btn-primary" target="_blank" rel="noopener"
+        onclick="gtag('event','google_review_click',{event_category:'social',event_label:'reviews_cta'})">
         📍 喺 Google 查看更多評價
       </a>
     </div>

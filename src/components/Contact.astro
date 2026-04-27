@@ -19,7 +19,7 @@
           <span class="contact-icon">📞</span>
           <div>
             <h3>電話 / WhatsApp</h3>
-            <p><a href="tel:+85269960711">6996 0711</a></p>
+            <p><a href="tel:+85269960711" onclick="gtag('event','phone_click',{event_category:'contact',event_label:'contact_section'})">6996 0711</a></p>
           </div>
         </div>
         <div class="contact-item">
@@ -29,7 +29,8 @@
             <p>每日 12:00 - 21:00</p>
           </div>
         </div>
-        <a href="https://wa.me/85269960711" class="btn btn-whatsapp contact-cta" target="_blank" rel="noopener">
+        <a href="https://wa.me/85269960711" class="btn btn-whatsapp contact-cta" target="_blank" rel="noopener"
+          onclick="gtag('event','whatsapp_click',{event_category:'contact',event_label:'contact_section'})">
           💬 WhatsApp 即時查詢
         </a>
       </div>

@@ -18,7 +18,8 @@ const navLinks = [
       {navLinks.map(link => (
         <a href={link.href} class="nav-link">{link.label}</a>
       ))}
-      <a href="https://wa.me/85269960711" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+      <a href="https://wa.me/85269960711" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener"
+        onclick="gtag('event','whatsapp_click',{event_category:'contact',event_label:'header'})">
         WhatsApp 預約
       </a>
     </nav>
