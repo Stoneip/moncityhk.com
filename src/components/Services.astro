@@ -1,34 +1,34 @@
 ---
 const services = [
   {
-    icon: '📱',
     title: '爆玻璃維修',
     desc: '螢幕玻璃碎裂但觸控正常？我哋可以單獨更換玻璃面板，手機照常使用。',
+    svg: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="4" width="24" height="40" rx="3"/><line x1="18" y1="4" x2="30" y2="4"/><line x1="16" y1="12" x2="28" y2="28"/><line x1="28" y1="14" x2="18" y2="26"/><circle cx="24" cy="39" r="2"/></svg>',
   },
   {
-    icon: '📷',
     title: '鏡頭更換',
     desc: '鏡頭無法開啟、影像抖動、出現黑影或黑點？專業更換恢復清晰拍攝。',
+    svg: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="4"/><path d="M14 8h20l4 6h4v26H6V14h4z"/></svg>',
   },
   {
-    icon: '🖥️',
     title: '爆液晶維修',
     desc: '觸控間歇性失靈、嚴重時完全無反應無畫面？更換液晶總成即刻修復。',
+    svg: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="32" height="36" rx="2"/><rect x="12" y="10" width="24" height="22" rx="1"/><line x1="20" y1="38" x2="28" y2="38"/><line x1="12" y1="16" x2="36" y2="16" stroke-dasharray="2 3"/></svg>',
   },
   {
-    icon: '🔘',
     title: '按鍵維修',
     desc: 'Home 鍵、開關機鍵無反應或失靈？精準維修恢復按鍵功能。',
+    svg: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="4" width="24" height="40" rx="3"/><circle cx="24" cy="38" r="4"/><circle cx="24" cy="38" r="1.5" fill="currentColor"/><rect x="16" y="10" width="16" height="20" rx="1"/></svg>',
   },
   {
-    icon: '🔋',
     title: '更換電池',
     desc: '電池損耗老化、續航大幅下降？適時更換電池延長手機壽命。',
+    svg: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="32" height="20" rx="3"/><rect x="40" y="20" width="4" height="8" rx="1"/><line x1="20" y1="24" x2="28" y2="24"/><line x1="24" y1="20" x2="24" y2="28"/></svg>',
   },
   {
-    icon: '🔧',
     title: '其他維修',
     desc: 'WiFi 功能失靈、指紋認證故障、充電位接觸不良等問題，歡迎查詢。',
+    svg: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="28" r="14"/><path d="M18 18l-4-4M30 18l4-4"/><line x1="24" y1="22" x2="24" y2="28"/><line x1="24" y1="28" x2="30" y2="24"/><circle cx="24" cy="28" r="2" fill="currentColor"/></svg>',
   },
 ];
 ---
@@ -40,7 +40,7 @@ const services = [
     <div class="services-grid">
       {services.map(s => (
         <div class="service-card">
-          <span class="service-icon">{s.icon}</span>
+          <div class="service-icon" set:html={s.svg} />
           <h3 class="service-title">{s.title}</h3>
           <p class="service-desc">{s.desc}</p>
         </div>
@@ -66,7 +66,16 @@ const services = [
     box-shadow: var(--shadow-lg);
     transform: translateY(-2px);
   }
-  .service-icon { font-size: 2.4rem; display: block; margin-bottom: 16px; }
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--primary);
+    margin-bottom: 16px;
+  }
+  .service-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
   .service-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
   .service-desc { color: var(--ink-muted); font-size: 0.95rem; line-height: 1.7; }
 
