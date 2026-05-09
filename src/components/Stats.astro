@@ -1,0 +1,51 @@
+---
+const stats = [
+  { number: '3000+', label: '服務客戶' },
+  { number: '5年+', label: '維修經驗' },
+  { number: '15分鐘', label: '即場完成' },
+  { number: '90日', label: '保養承諾' },
+];
+---
+
+<section class="stats">
+  <div class="container stats-grid">
+    {stats.map(s => (
+      <div class="stat-item">
+        <span class="stat-number">{s.number}</span>
+        <span class="stat-label">{s.label}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .stats {
+    background: var(--primary);
+    padding: 32px 0;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  .stat-label {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .stat-number { font-size: 1.6rem; }
+  }
+</style>

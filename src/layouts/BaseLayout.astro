@@ -92,6 +92,30 @@ const webSiteSchema = {
       gtag('config', 'G-7B53J3CMY2');
       gtag('config', 'AW-17523347184');
     </script>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(function(element) {
+          element.addEventListener('click', function() {
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'whatsapp_click', {
+                'event_category': 'contact',
+                'event_label': 'whatsapp_conversion'
+              });
+            }
+          });
+        });
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(element) {
+          element.addEventListener('click', function() {
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'phone_click', {
+                'event_category': 'contact',
+                'event_label': 'phone_conversion'
+              });
+            }
+          });
+        });
+      });
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">跳至主要內容</a>

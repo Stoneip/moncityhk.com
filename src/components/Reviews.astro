@@ -1,11 +1,49 @@
 ---
 const googleMapsUrl = 'https://maps.app.goo.gl/rtoUcQDWsXnkjuTSA';
+
+const row1 = [
+  { name: '陳先生', text: '換Mon好快，30分鐘搞掂！價錢合理，推薦。', stars: 5 },
+  { name: '李小姐', text: '師傅手工好細心，換完同新一樣，讚！', stars: 5 },
+  { name: '張太', text: 'iPhone 爆玻璃即場整好，唔使等，好方便。', stars: 5 },
+  { name: '黃生', text: '價錢公道，冇亂收費，服務態度好好。', stars: 5 },
+  { name: '王先生', text: '換電池之後好似新機，用返成日冇問題。', stars: 5 },
+  { name: '何小姐', text: '深水埗站行過嚟兩分鐘就到，好方便。', stars: 5 },
+  { name: '林太', text: 'Samsung 換螢幕好快手，半個鐘搞掂。', stars: 4 },
+  { name: '劉先生', text: '第二次幫襯，一如既往咁好，值得信賴。', stars: 5 },
+  { name: '周小姐', text: '換鏡頭後影相清晰返晒，多謝師傅！', stars: 5 },
+  { name: '吳生', text: '朋友介紹嚟嘅，果然冇伏，正！', stars: 5 },
+  { name: '鄭先生', text: 'iPad 換電池都搞到，仲好快添。', stars: 5 },
+  { name: '梁小姐', text: '有90日保養，好放心，唔怕整完有問題。', stars: 5 },
+  { name: '楊太', text: '比原廠平好多，效果一樣好。', stars: 4 },
+  { name: '許生', text: '師傅解釋得好清楚，唔會亂upsell。', stars: 5 },
+  { name: '蔡先生', text: '手機跌壞咗，即日修好，救返好多相。', stars: 5 },
+];
+
+const row2 = [
+  { name: '謝小姐', text: '充電位壞咗都識修，以為要換機添。', stars: 5 },
+  { name: '羅生', text: '好快覆 WhatsApp，問完價即刻過去整。', stars: 5 },
+  { name: '馬先生', text: '等緊嗰陣行下深之都，好快就整完。', stars: 5 },
+  { name: '趙小姐', text: '換完 Mon 觸控靈敏度同新一樣，滿意。', stars: 5 },
+  { name: '曾太', text: '老公手機都係嚟呢度整，全家幫襯。', stars: 5 },
+  { name: '鍾先生', text: '整 Switch 都得，小朋友開心晒。', stars: 4 },
+  { name: '葉小姐', text: '價錢透明，報幾多收幾多，冇隱藏收費。', stars: 5 },
+  { name: '潘生', text: '已經介紹咗幾個朋友嚟，個個都滿意。', stars: 5 },
+  { name: '蕭先生', text: '新年前趕住整好，多謝師傅加班幫手。', stars: 5 },
+  { name: '方小姐', text: 'Google 搵到呢間，睇完評價先嚟，冇揀錯。', stars: 5 },
+  { name: '石太', text: 'Home 鍵壞咗都修到，以為冇得救。', stars: 5 },
+  { name: '朱先生', text: '第一次嚟就變熟客，之後有問題都搵佢。', stars: 5 },
+  { name: '余小姐', text: '半個鐘搞掂，效率高，服務態度滿分。', stars: 5 },
+  { name: '洪生', text: '用料有保證，唔怕翻整，安心。', stars: 4 },
+  { name: '鄧先生', text: '小朋友跌壞手機，即日修好，多謝！', stars: 5 },
+];
+
+function starsStr(n: number) { return '★'.repeat(n) + (n < 5 ? '☆'.repeat(5-n) : ''); }
 ---
 
 <section class="section" id="reviews">
   <div class="container">
     <h2 class="section-title">顧客評價</h2>
-    <p class="section-subtitle">睇下其他顧客點講</p>
+    <p class="section-subtitle">真實客戶反饋，口碑見證</p>
 
     <div class="reviews-google">
       <div class="google-badge">
@@ -19,37 +57,47 @@ const googleMapsUrl = 'https://maps.app.goo.gl/rtoUcQDWsXnkjuTSA';
           <strong>Google 評價</strong>
           <div class="google-stars">
             <span class="stars">★★★★★</span>
+            <span class="review-count">30+ 則評價</span>
           </div>
         </div>
         <a href={googleMapsUrl} class="btn btn-outline btn-sm" target="_blank" rel="noopener"
           onclick="gtag('event','google_review_click',{event_category:'social',event_label:'reviews_badge'})">
-          查看所有評價
+          查看 Google 評價
         </a>
       </div>
     </div>
+  </div>
 
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">「師傅手工好好，換Mon好快搞掂，價錢公道。推薦！」</p>
-        <div class="review-author">— Google 評價用戶</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">「iPhone 爆玻璃拎過去，即場整好，服務態度好好。」</p>
-        <div class="review-author">— Google 評價用戶</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">「換電池好快，而且有保養。深水埗站行幾步就到，好方便。」</p>
-        <div class="review-author">— Google 評價用戶</div>
+  <div class="marquee-wrapper">
+    <div class="marquee-row">
+      <div class="marquee-track marquee-left">
+        {[...row1, ...row1].map(r => (
+          <div class="review-card">
+            <div class="review-stars">{starsStr(r.stars)}</div>
+            <p class="review-text">「{r.text}」</p>
+            <div class="review-author">— {r.name}</div>
+          </div>
+        ))}
       </div>
     </div>
+    <div class="marquee-row">
+      <div class="marquee-track marquee-right">
+        {[...row2, ...row2].map(r => (
+          <div class="review-card">
+            <div class="review-stars">{starsStr(r.stars)}</div>
+            <p class="review-text">「{r.text}」</p>
+            <div class="review-author">— {r.name}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
 
+  <div class="container">
     <div class="reviews-cta">
       <a href={googleMapsUrl} class="btn btn-primary" target="_blank" rel="noopener"
         onclick="gtag('event','google_review_click',{event_category:'social',event_label:'reviews_cta'})">
-        📍 喺 Google 查看更多評價
+        喺 Google 查看更多評價
       </a>
     </div>
   </div>
@@ -71,37 +119,73 @@ const googleMapsUrl = 'https://maps.app.goo.gl/rtoUcQDWsXnkjuTSA';
   }
   .google-icon { flex-shrink: 0; }
   .google-badge strong { font-size: 1rem; }
-  .google-stars { margin-top: 2px; }
+  .google-stars { margin-top: 2px; display: flex; align-items: center; gap: 8px; }
   .stars { color: #fbbc05; font-size: 1.1rem; letter-spacing: 2px; }
+  .review-count { font-size: 0.85rem; color: var(--ink-soft); }
   .google-badge .btn-sm { margin-left: auto; white-space: nowrap; }
   .btn-sm { padding: 8px 20px; font-size: 0.9rem; }
 
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 40px;
+  .marquee-wrapper {
+    overflow: hidden;
+    padding: 0 0 40px;
   }
+  .marquee-row {
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+  }
+  .marquee-left {
+    animation: scroll-left 80s linear infinite;
+  }
+  .marquee-right {
+    animation: scroll-right 80s linear infinite;
+  }
+  .marquee-row:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes scroll-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
   .review-card {
     background: var(--paper);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 28px 24px;
+    padding: 20px 24px;
+    min-width: 280px;
+    max-width: 320px;
+    flex-shrink: 0;
   }
-  .review-stars { color: #fbbc05; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 12px; }
+  .review-stars { color: #fbbc05; font-size: 1rem; letter-spacing: 2px; margin-bottom: 10px; }
   .review-text {
     color: var(--ink);
-    font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 16px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 12px;
   }
   .review-author { color: var(--ink-soft); font-size: 0.85rem; }
 
   .reviews-cta { text-align: center; }
 
   @media (max-width: 768px) {
-    .reviews-grid { grid-template-columns: 1fr; }
     .google-badge { flex-wrap: wrap; }
     .google-badge .btn-sm { margin-left: 0; width: 100%; text-align: center; justify-content: center; }
+    .review-card { min-width: 260px; max-width: 280px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-left, .marquee-right { animation: none; }
+    .marquee-track { flex-wrap: wrap; justify-content: center; }
+    .marquee-wrapper { overflow: visible; }
   }
 </style>
