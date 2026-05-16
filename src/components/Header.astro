@@ -11,15 +11,15 @@ const navLinks = [
 
 <header class="header">
   <div class="container header-inner">
-    <a href="/" class="logo" aria-label="MonCity 手機維修 首頁">
+    <a href="/" class="logo" aria-label="MonCity 換Mon城 首頁">
       <img src="/logo.png" alt="MonCity" class="logo-img" width="36" height="36" />
-      <span class="logo-text">MonCity <span class="logo-sub">手機維修</span></span>
+      <span class="logo-text">MonCity <span class="logo-sub">換Mon城</span></span>
     </a>
     <nav class="nav" id="nav" aria-label="主要導航">
       {navLinks.map(link => (
         <a href={link.href} class="nav-link">{link.label}</a>
       ))}
-      <a href="https://wa.me/85269960711?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E6%89%8B%E6%A9%9F%E7%B6%AD%E4%BF%AE%E5%A0%B1%E5%83%B9%E3%80%82%E6%88%91%E7%9A%84%E5%9E%8B%E8%99%9F%E6%98%AF%EF%BC%9A" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener"
+      <a href="https://wa.me/85269960711?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E6%89%8B%E6%A9%9F%E6%9C%8D%E5%8B%99%E5%A0%B1%E5%83%B9%E3%80%82%E6%88%91%E7%9A%84%E5%9E%8B%E8%99%9F%E6%98%AF%EF%BC%9A" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener"
         onclick="gtag('event','whatsapp_click',{event_category:'contact',event_label:'header'})">
         WhatsApp 預約
       </a>

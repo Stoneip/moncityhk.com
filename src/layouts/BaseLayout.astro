@@ -7,15 +7,15 @@ interface Props {
 
 const { title, description, pathname = '' } = Astro.props;
 const canonicalURL = new URL(pathname, Astro.site);
-const siteName = 'MonCity 手機維修';
+const siteName = 'MonCity 換Mon城';
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   '@id': 'https://moncityhk.com/#business',
   name: 'MONCITY 換Mon城',
-  alternateName: 'MonCity 手機維修',
-  description: '香港深水埗專業手機維修服務，即場維修',
+  alternateName: 'MonCity 手機服務',
+  description: '香港深水埗專業手機服務，螢幕、電池、鏡頭即場更換',
   url: 'https://moncityhk.com',
   telephone: '+852-6996-0711',
   address: {

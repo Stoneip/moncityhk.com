@@ -10,16 +10,16 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.getTime()
 ---
 
 <BaseLayout
-  title="手機維修攻略 | MonCity Blog"
-  description="手機維修知識、換電池攻略、螢幕更換教學。MonCity 深水埗手機維修專家分享實用資訊。"
+  title="手機保養攻略 | MonCity Blog"
+  description="手機保養知識、換電池攻略、螢幕更換教學。MonCity 深水埗手機服務專家分享實用資訊。"
   pathname="/blog/"
 >
   <Header />
   <FloatingWhatsApp />
   <main id="main" class="section">
     <div class="container">
-      <h1 class="section-title">手機維修攻略</h1>
-      <p class="section-subtitle">實用知識，幫你了解手機維修大小事</p>
+      <h1 class="section-title">手機保養攻略</h1>
+      <p class="section-subtitle">實用知識，幫你了解手機保養大小事</p>
       <div class="blog-grid">
         {posts.map(post => (
           <a href={`/blog/${post.id}/`} class="blog-card">

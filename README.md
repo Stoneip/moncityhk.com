@@ -1,10 +1,10 @@
-# moncityhk.com — MonCity 手機維修
+# moncityhk.com — MonCity 換Mon城
 
-香港深水埗手機外觀維修服務網站。
+香港深水埗手機外觀服務網站（螢幕、電池、鏡頭即場更換）。
 
 ## 簡介
 
-MonCity 手機維修位於深水埗深之都，提供各類手機維修服務包括爆玻璃維修、鏡頭更換、液晶維修、按鍵維修、換電池等。
+MonCity 換Mon城 位於深水埗深之都，提供各類手機外觀更換服務，包括爆玻璃更換、鏡頭更換、液晶更換、按鍵處理、換電池等。
 
 ## 技術架構
 
@@ -24,10 +24,44 @@ npm run dev
 
 Push 到 `main` 分支後，Cloudflare Pages 會自動部署。
 
+或手動部署：
+
+```bash
+npm run build
+wrangler pages deploy dist/ --project-name=moncityhk-com
+```
+
 ## 版本歷史
+
+### v0.9.0 (2026-05-16)
+- 全站移除「維修」字眼以配合 Google Ads 投放（改用「服務」/「更換」/「處理」/「保養」）
+- 品牌名統一用「MonCity 換Mon城」
+- 影響 65+ 處 across 14 檔案（components、pages、blog、layouts、llms.txt）
+- WhatsApp 預填訊息「手機維修報價」→「手機服務報價」
+
+### v0.8.0
+- 全站改回「維修」定位（已於 v0.9.0 反向）
+
+### v0.7.0
+- 加入統計列、30 條評價牆、Blog 系統、WhatsApp/電話追蹤
+
+### v0.6.x
+- Google Ads conversion tag、重新定位為「零件專門店」
+
+### v0.5.0
+- WhatsApp 預填訊息、懸浮按鈕、SEO 優化
+
+### v0.4.x
+- 官方 logo、SVG icon、PageSpeed/GEO 優化
+
+### v0.3.x
+- 紅色 Header/Footer、GA4 events
+
+### v0.2.0 (2026-04-27)
+- 主色由藍改紅、GA4、評價區、Google Business 整合
 
 ### v0.1.0 (2026-04-27)
 - 初始版本
-- Landing page：首頁、服務介紹、維修流程、FAQ、聯絡資訊
+- Landing page：首頁、服務介紹、服務流程、FAQ、聯絡資訊
 - SEO: LocalBusiness + FAQPage JSON-LD schema
 - Cloudflare Pages 部署
