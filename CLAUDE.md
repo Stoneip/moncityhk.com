@@ -26,8 +26,25 @@ npm run build    # 建置靜態檔案到 dist/
 npm run preview  # 預覽建置結果
 ```
 
-## Deploy
-Push to `main` branch → Cloudflare Pages 自動部署。
+## Deploy（**必須手動 wrangler**）
+**重要**：CF Pages git auto-deploy 已失效（2026-05 起 production 一直停留喺舊 commit，git push 後唔會自動 trigger）。**每次 ship 必須跑以下命令**，否則 live 唔會更新：
+
+```bash
+npm run build
+wrangler pages deploy dist/ \
+  --project-name=moncityhk-com \
+  --branch=main \
+  --commit-hash=$(git rev-parse HEAD) \
+  --commit-message="$(git log -1 --pretty=%s)"
+```
+
+完成後 verify：
+```bash
+curl -s https://moncityhk.com/ | grep -oE "<title>[^<]+</title>"
+curl -s https://moncityhk.com/ | grep -c "維修"   # 應該係 0
+```
+
+備註：wrangler 已 login 喺 Stoneip@gmail.com 戶口（Account ID `b4812f835e4370782067c26d741714f3`）。如失敗跑 `wrangler login`。
 
 ## 重要資訊
 - **Domain**: moncityhk.com (Cloudflare DNS)
