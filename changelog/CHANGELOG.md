@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.10.2 (2026-05-20)
+
+### 變更
+- **禮物 Banner 加 GA4 event tracking**：「立即領取」按鈕點擊 fire `gift_banner_click` event（`engagement` category），追蹤幾多人開 modal
+- **登入成功 event 改名**：`gift_banner_click` → `gift_banner_login`（`conversion` category），同按鈕點擊分開
+
+### GA4 Events（GiftBanner funnel）
+| Event | 觸發 | Category |
+|---|---|---|
+| `gift_banner_click` | 撳「立即領取」開 modal | engagement |
+| `gift_banner_login` | Google 登入成功 | conversion |
+
+---
+
 ## v0.10.1 (2026-05-20)
 
 ### 變更

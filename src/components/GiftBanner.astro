@@ -41,7 +41,7 @@ const GOOGLE_CLIENT_ID = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
   window.handleGiftCredential = function(response) {
     sessionStorage.setItem('mc_credential', response.credential);
     if (typeof gtag !== 'undefined') {
-      gtag('event', 'gift_banner_click', {
+      gtag('event', 'gift_banner_login', {
         event_category: 'conversion',
         event_label: 'homepage_banner_login'
       });
@@ -74,7 +74,15 @@ const GOOGLE_CLIENT_ID = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
     document.body.style.overflow = '';
   }
 
-  btn.addEventListener('click', openModal);
+  btn.addEventListener('click', function() {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'gift_banner_click', {
+        event_category: 'engagement',
+        event_label: 'homepage_banner_open'
+      });
+    }
+    openModal();
+  });
   closeBtn.addEventListener('click', closeModal);
   backdrop.addEventListener('click', closeModal);
 })();

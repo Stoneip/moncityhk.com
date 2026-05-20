@@ -33,6 +33,10 @@ wrangler pages deploy dist/ --project-name=moncityhk-com
 
 ## 版本歷史
 
+### v0.10.2 (2026-05-20)
+- 禮物 Banner「立即領取」按鈕加 `gift_banner_click` GA4 event（追蹤開 modal 點擊）
+- 登入成功 event 改名 `gift_banner_login`（同按鈕點擊分開追蹤，形成 conversion funnel）
+
 ### v0.10.1 (2026-05-20)
 - 首頁「立即領取」改為直接彈 Google Login modal（唔使跳頁）
 - 登入後 credential 經 sessionStorage 傳去 `/discount/` 直接顯示結果
