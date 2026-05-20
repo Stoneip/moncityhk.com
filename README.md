@@ -33,11 +33,15 @@ wrangler pages deploy dist/ --project-name=moncityhk-com
 
 ## 版本歷史
 
+### v0.10.1 (2026-05-20)
+- 首頁「立即領取」改為直接彈 Google Login modal（唔使跳頁）
+- 登入後 credential 經 sessionStorage 傳去 `/discount/` 直接顯示結果
+- Google OAuth Client ID 已設定
+
 ### v0.10.0 (2026-05-20)
 - 新增 `/discount/` 神秘禮物頁面（Google Sign-In + GA4 Enhanced Conversions）
 - 首頁加禮物 Banner（FAQ 同 Contact 之間）
 - Reviews section 加「留低你嘅評價」按鈕 + GA4 event tracking
-- 需設定 `PUBLIC_GOOGLE_CLIENT_ID` 環境變數啟用 Google Login
 
 ### v0.9.1 (2026-05-18)
 - 修正深水埗站出口 D2 → D1

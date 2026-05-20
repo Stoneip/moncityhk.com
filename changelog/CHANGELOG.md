@@ -1,5 +1,20 @@
 # Changelog
 
+## v0.10.1 (2026-05-20)
+
+### 變更
+- **禮物 Banner 改為 Modal 登入**：首頁「立即領取」由跳轉 `/discount/` 改為直接彈出 Google Login modal，登入成功後先跳轉
+- **sessionStorage 傳遞 credential**：從首頁 modal 登入後，credential 經 sessionStorage 帶去 `/discount/` 頁面，直接顯示禮物結果（跳過重複登入）
+- **Google OAuth Client ID 已設定**：`PUBLIC_GOOGLE_CLIENT_ID` 環境變數已配置（stoneip-dashboard project）
+
+### 流程
+1. 客人喺首頁 click「立即領取 🎁」
+2. 彈出 modal → Google Sign-In 按鈕
+3. 登入成功 → sessionStorage 儲存 credential → 跳轉 `/discount/`
+4. `/discount/` 讀取 credential → 直接顯示神秘禮物 + 留評按鈕
+
+---
+
 ## v0.10.0 (2026-05-20)
 
 ### 新增

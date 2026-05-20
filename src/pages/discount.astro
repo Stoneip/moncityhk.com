@@ -106,7 +106,14 @@ const GOOGLE_CLIENT_ID = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
     }
   };
 
+  var storedCredential = sessionStorage.getItem('mc_credential');
+  if (storedCredential) {
+    sessionStorage.removeItem('mc_credential');
+    window.handleCredentialResponse({ credential: storedCredential });
+  }
+
   function initGoogleSignIn() {
+    if (storedCredential) return;
     if (!GOOGLE_CLIENT_ID) {
       document.getElementById('login-section').style.display = 'none';
       document.getElementById('error-section').style.display = 'block';

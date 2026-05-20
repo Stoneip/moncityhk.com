@@ -1,4 +1,5 @@
 ---
+const GOOGLE_CLIENT_ID = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
 ---
 
 <section class="gift-banner">
@@ -10,12 +11,74 @@
         <p class="gift-banner-desc">用 Google 帳戶登入即可領取，仲可以幫我哋留個評價！</p>
       </div>
     </div>
-    <a href="/discount/" class="btn btn-gift"
-      onclick="gtag('event','gift_banner_click',{event_category:'conversion',event_label:'homepage_banner'})">
+    <button type="button" id="gift-claim-btn" class="btn btn-gift">
       立即領取 🎁
-    </a>
+    </button>
   </div>
 </section>
+
+<div id="gift-modal" class="gift-modal">
+  <div class="gift-modal-backdrop" id="gift-modal-backdrop"></div>
+  <div class="gift-modal-card">
+    <button type="button" class="gift-modal-close" id="gift-modal-close">&times;</button>
+    <div class="gift-modal-icon">🎁</div>
+    <h2 class="gift-modal-title">登入領取神秘禮物</h2>
+    <p class="gift-modal-desc">用 Google 帳戶登入即可</p>
+    <div id="gift-google-btn"></div>
+  </div>
+</div>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<script is:inline define:vars={{ GOOGLE_CLIENT_ID }}>
+(function() {
+  var modal = document.getElementById('gift-modal');
+  var btn = document.getElementById('gift-claim-btn');
+  var closeBtn = document.getElementById('gift-modal-close');
+  var backdrop = document.getElementById('gift-modal-backdrop');
+  var rendered = false;
+
+  window.handleGiftCredential = function(response) {
+    sessionStorage.setItem('mc_credential', response.credential);
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'gift_banner_click', {
+        event_category: 'conversion',
+        event_label: 'homepage_banner_login'
+      });
+    }
+    window.location.href = '/discount/';
+  };
+
+  function openModal() {
+    if (!GOOGLE_CLIENT_ID || typeof google === 'undefined' || !google.accounts) {
+      window.location.href = '/discount/';
+      return;
+    }
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    if (!rendered) {
+      google.accounts.id.initialize({
+        client_id: GOOGLE_CLIENT_ID,
+        callback: window.handleGiftCredential
+      });
+      google.accounts.id.renderButton(
+        document.getElementById('gift-google-btn'),
+        { theme: 'outline', size: 'large', text: 'signin_with', locale: 'zh-TW', width: 300 }
+      );
+      rendered = true;
+    }
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  btn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+})();
+</script>
 
 <style>
   .gift-banner {
@@ -55,6 +118,8 @@
     padding: 14px 32px;
     border-radius: var(--radius);
     font-size: 1.1rem;
+    cursor: pointer;
+    border: none;
     transition: background 0.2s, transform 0.1s;
   }
   .btn-gift:hover {
@@ -63,6 +128,45 @@
     transform: translateY(-1px);
   }
 
+  .gift-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+  .gift-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+  }
+  .gift-modal-card {
+    position: relative;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 48px 32px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+  }
+  .gift-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .gift-modal-close:hover { color: var(--ink); }
+  .gift-modal-icon { font-size: 3rem; margin-bottom: 12px; }
+  .gift-modal-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
+  .gift-modal-desc { color: var(--ink-muted); margin-bottom: 24px; }
+  #gift-google-btn { display: flex; justify-content: center; }
+
   @media (max-width: 768px) {
     .gift-banner { padding: 32px 0; }
     .gift-banner-inner { flex-direction: column; text-align: center; }
@@ -70,5 +174,6 @@
     .gift-banner-icon { font-size: 2rem; }
     .gift-banner-title { font-size: 1.15rem; }
     .btn-gift { width: 100%; text-align: center; justify-content: center; }
+    .gift-modal-card { padding: 32px 20px; }
   }
 </style>
