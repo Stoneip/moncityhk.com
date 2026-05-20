@@ -33,6 +33,15 @@ wrangler pages deploy dist/ --project-name=moncityhk-com
 
 ## 版本歷史
 
+### v0.10.0 (2026-05-20)
+- 新增 `/discount/` 神秘禮物頁面（Google Sign-In + GA4 Enhanced Conversions）
+- 首頁加禮物 Banner（FAQ 同 Contact 之間）
+- Reviews section 加「留低你嘅評價」按鈕 + GA4 event tracking
+- 需設定 `PUBLIC_GOOGLE_CLIENT_ID` 環境變數啟用 Google Login
+
+### v0.9.1 (2026-05-18)
+- 修正深水埗站出口 D2 → D1
+
 ### v0.9.0 (2026-05-16)
 - 全站移除「維修」字眼以配合 Google Ads 投放（改用「服務」/「更換」/「處理」/「保養」）
 - 品牌名統一用「MonCity 換Mon城」

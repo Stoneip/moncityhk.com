@@ -1,0 +1,74 @@
+---
+---
+
+<section class="gift-banner">
+  <div class="container gift-banner-inner">
+    <div class="gift-banner-text">
+      <span class="gift-banner-icon">🎁</span>
+      <div>
+        <h2 class="gift-banner-title">完成服務？領取你嘅神秘禮物</h2>
+        <p class="gift-banner-desc">用 Google 帳戶登入即可領取，仲可以幫我哋留個評價！</p>
+      </div>
+    </div>
+    <a href="/discount/" class="btn btn-gift"
+      onclick="gtag('event','gift_banner_click',{event_category:'conversion',event_label:'homepage_banner'})">
+      立即領取 🎁
+    </a>
+  </div>
+</section>
+
+<style>
+  .gift-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 40px 0;
+  }
+  .gift-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .gift-banner-text {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .gift-banner-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+  }
+  .gift-banner-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .gift-banner-desc {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+  }
+  .btn-gift {
+    background: #fff;
+    color: var(--primary);
+    font-weight: 700;
+    white-space: nowrap;
+    padding: 14px 32px;
+    border-radius: var(--radius);
+    font-size: 1.1rem;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-gift:hover {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 768px) {
+    .gift-banner { padding: 32px 0; }
+    .gift-banner-inner { flex-direction: column; text-align: center; }
+    .gift-banner-text { flex-direction: column; }
+    .gift-banner-icon { font-size: 2rem; }
+    .gift-banner-title { font-size: 1.15rem; }
+    .btn-gift { width: 100%; text-align: center; justify-content: center; }
+  }
+</style>

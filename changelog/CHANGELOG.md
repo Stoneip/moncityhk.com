@@ -1,5 +1,28 @@
 # Changelog
 
+## v0.10.0 (2026-05-20)
+
+### 新增
+- **神秘禮物頁面** `/discount/`：Google Sign-In 登入後顯示「神秘禮物」證明（客人名 + 日期），下方有 Google Maps 留評按鈕
+  - Google Identity Services（純 client-side，唔需要 backend）
+  - GA4 Enhanced Conversions：自動 set `user_data`（hashed email）配對 Google Ads 廣告點擊
+  - Fire `discount_claimed` + `review_from_gift` GA4 events
+  - 需要設定 `PUBLIC_GOOGLE_CLIENT_ID` 環境變數（Google Cloud OAuth Client ID）
+- **首頁禮物 Banner**：FAQ 同 Contact 之間加紅色 CTA banner「完成服務？領取你嘅神秘禮物」，link 去 `/discount/`，fire `gift_banner_click` event
+- **Reviews 留評按鈕**：Reviews section 底部加「留低你嘅評價」按鈕，fire `leave_review_click` GA4 event
+
+### 新增 Components
+- `GiftBanner.astro`：首頁禮物 banner
+
+### 新增 Pages
+- `discount.astro`：Google Login + 禮物領取 + Google Maps 留評
+
+### 注意
+- `/discount/` 未加入 Header navigation（只供店內客人使用，由店員提供 URL/QR code）
+- Google Sign-In 需要先設定 OAuth Client ID 先至 work（見 CLAUDE.md 或 README）
+
+---
+
 ## v0.9.1 (2026-05-18)
 
 ### 修正

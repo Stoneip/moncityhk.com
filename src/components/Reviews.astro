@@ -96,8 +96,12 @@ function starsStr(n: number) { return '★'.repeat(n) + (n < 5 ? '☆'.repeat(5-
   <div class="container">
     <div class="reviews-cta">
       <a href={googleMapsUrl} class="btn btn-primary" target="_blank" rel="noopener"
+        onclick="gtag('event','leave_review_click',{event_category:'social',event_label:'reviews_section'})">
+        ⭐ 留低你嘅評價
+      </a>
+      <a href={googleMapsUrl} class="btn btn-outline" target="_blank" rel="noopener"
         onclick="gtag('event','google_review_click',{event_category:'social',event_label:'reviews_cta'})">
-        喺 Google 查看更多評價
+        查看更多 Google 評價
       </a>
     </div>
   </div>
@@ -175,7 +179,7 @@ function starsStr(n: number) { return '★'.repeat(n) + (n < 5 ? '☆'.repeat(5-
   }
   .review-author { color: var(--ink-soft); font-size: 0.85rem; }
 
-  .reviews-cta { text-align: center; }
+  .reviews-cta { text-align: center; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
   @media (max-width: 768px) {
     .google-badge { flex-wrap: wrap; }

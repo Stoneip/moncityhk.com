@@ -13,8 +13,8 @@
 ```
 src/
 ├── layouts/BaseLayout.astro    # 共用 layout（SEO, JSON-LD）
-├── components/                 # Header, Hero, Services, Process, Reviews, FAQ, Contact, Footer
-├── pages/                      # index, privacy, 404
+├── components/                 # Header, Hero, Services, Process, Reviews, FAQ, Contact, GiftBanner, Footer
+├── pages/                      # index, privacy, discount, 404
 └── styles/global.css           # Design tokens + 全局樣式
 public/                         # favicon, robots.txt
 ```
@@ -61,7 +61,7 @@ curl -s https://moncityhk.com/ | grep -c "維修"   # 應該係 0
 - **Google Business**: https://maps.app.goo.gl/rtoUcQDWsXnkjuTSA
 
 ## 版本
-v0.9.1
+v0.10.0
 
 ## 重要 — 字眼策略
 - 全站避免「維修」字眼，改用「服務」/「更換」/「處理」/「保養」
