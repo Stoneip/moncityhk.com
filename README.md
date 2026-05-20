@@ -33,6 +33,10 @@ wrangler pages deploy dist/ --project-name=moncityhk-com
 
 ## 版本歷史
 
+### v0.10.3 (2026-05-20)
+- 加入 Google Ads conversion tracking（AW-17523347184）
+- 4 個 conversion events：Page View、WhatsApp Click、Phone Click、Email Click
+
 ### v0.10.2 (2026-05-20)
 - 禮物 Banner「立即領取」按鈕加 `gift_banner_click` GA4 event（追蹤開 modal 點擊）
 - 登入成功 event 改名 `gift_banner_login`（同按鈕點擊分開追蹤，形成 conversion funnel）

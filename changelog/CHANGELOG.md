@@ -1,5 +1,24 @@
 # Changelog
 
+## v0.10.3 (2026-05-20)
+
+### 新增
+- **Google Ads Conversion Tracking**：加入 4 個 Google Ads conversion events（AW-17523347184）
+
+### Google Ads Conversions
+| Conversion | send_to | 觸發 |
+|---|---|---|
+| Page View | `v-d8CK2vibAcEPCd5KNB` | 每頁載入 |
+| WhatsApp Click | `haKUCMiZorAcEPCd5KNB` | 撳 WhatsApp 連結 |
+| Phone Click | `Y5SFCIKiibAcEPCd5KNB` | 撳電話連結 |
+| Email Click | `9YmACJSribAcEPCd5KNB` | 撳 mailto 連結 |
+
+### 備註
+- `gtag('config', 'AW-17523347184')` 已於 v0.10.0 加入，今次只加 conversion events
+- GA4 events（`whatsapp_click`、`phone_click`）同時保留
+
+---
+
 ## v0.10.2 (2026-05-20)
 
 ### 變更

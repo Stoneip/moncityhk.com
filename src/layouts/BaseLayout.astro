@@ -93,6 +93,7 @@ const webSiteSchema = {
       gtag('config', 'AW-17523347184');
     </script>
     <script is:inline>
+      gtag('event', 'conversion', {'send_to': 'AW-17523347184/v-d8CK2vibAcEPCd5KNB'});
       document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(function(element) {
           element.addEventListener('click', function() {
@@ -101,6 +102,7 @@ const webSiteSchema = {
                 'event_category': 'contact',
                 'event_label': 'whatsapp_conversion'
               });
+              gtag('event', 'conversion', {'send_to': 'AW-17523347184/haKUCMiZorAcEPCd5KNB'});
             }
           });
         });
@@ -111,6 +113,14 @@ const webSiteSchema = {
                 'event_category': 'contact',
                 'event_label': 'phone_conversion'
               });
+              gtag('event', 'conversion', {'send_to': 'AW-17523347184/Y5SFCIKiibAcEPCd5KNB'});
+            }
+          });
+        });
+        document.querySelectorAll('a[href*="mailto"]').forEach(function(element) {
+          element.addEventListener('click', function() {
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'conversion', {'send_to': 'AW-17523347184/9YmACJSribAcEPCd5KNB'});
             }
           });
         });
