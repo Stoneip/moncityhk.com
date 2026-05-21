@@ -1,0 +1,312 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
+import { brands, PART_LABELS, type PartPrices } from '../data/parts.ts';
+
+const PART_KEYS: (keyof PartPrices)[] = [
+  'glass', 'lcd', 'lcdAfter', 'combo', 'back', 'battery',
+  'faceId', 'flex', 'outer', 'inner', 'hinge', 'lcdDefect',
+];
+
+const brandView = brands.map(b => {
+  const usedKeys = PART_KEYS.filter(k => b.models.some(m => m.prices[k] !== undefined));
+  return { ...b, columns: usedKeys };
+});
+
+const totalModels = brands.reduce((sum, b) => sum + b.models.length, 0);
+const whatsappBase = 'https://wa.me/85269960711?text=';
+const askPartText = encodeURIComponent('你好，我想查詢手機零件價格。型號：');
+---
+
+<BaseLayout
+  title="手機零件價目 - MonCity 換Mon城 | iPhone、Samsung、華為零件批發"
+  description={`深水埗手機零件店，全港 ${totalModels}+ 款型號零件目錄：iPhone、iPad、Samsung、華為、小米、Sony、Pixel 螢幕、後蓋、電池、Face ID、排線。原裝及副廠選擇，門市現貨。`}
+  pathname="/parts/"
+>
+  <Header />
+  <FloatingWhatsApp />
+  <main id="main">
+    <section class="parts-hero">
+      <div class="container">
+        <h1>手機零件目錄</h1>
+        <p class="lead">
+          深水埗手機零件店現貨。<strong>{brands.length}</strong> 大品牌、
+          <strong>{totalModels}+</strong> 款型號零件，前螢幕玻璃、螢幕總成、後蓋玻璃、電池、Face ID 模組、排線等。
+          價錢以港幣 (HKD) 計，原裝及副廠選擇齊全。
+        </p>
+        <div class="parts-cta">
+          <a
+            href={whatsappBase + askPartText}
+            class="btn btn-whatsapp"
+            target="_blank"
+            rel="noopener"
+            onclick="gtag('event','whatsapp_click',{event_category:'contact',event_label:'parts_hero'})"
+          >💬 WhatsApp 報型號查價</a>
+          <a href="#brand-iphone" class="btn btn-outline">↓ 揀品牌睇價</a>
+        </div>
+        <p class="parts-note">
+          ※ 價格參考，實際以門市現貨報價為準。如需即場代裝，歡迎到店查詢。
+        </p>
+      </div>
+    </section>
+
+    <section class="parts-section">
+      <div class="container">
+        <nav class="brand-tabs" aria-label="品牌選擇">
+          {brandView.map((b, i) => (
+            <button
+              type="button"
+              class={`brand-tab ${i === 0 ? 'is-active' : ''}`}
+              data-target={`brand-${b.id}`}
+            >{b.name}</button>
+          ))}
+        </nav>
+
+        {brandView.map((b, i) => (
+          <article
+            id={`brand-${b.id}`}
+            class={`brand-panel ${i === 0 ? 'is-active' : ''}`}
+            aria-hidden={i !== 0}
+          >
+            <header class="brand-header">
+              <h2>{b.name}</h2>
+              <p>{b.desc}</p>
+              <p class="brand-count">共 {b.models.length} 款型號</p>
+            </header>
+            <div class="table-wrap">
+              <table class="parts-table">
+                <thead>
+                  <tr>
+                    <th class="model-col">型號</th>
+                    {b.columns.map(c => (<th>{PART_LABELS[c]} (HKD)</th>))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {b.models.map(m => (
+                    <tr>
+                      <td class="model-col">{m.name}</td>
+                      {b.columns.map(c => (
+                        <td>{m.prices[c] !== undefined ? `$${m.prices[c]?.toLocaleString()}` : '—'}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="parts-bottom">
+      <div class="container">
+        <h2>搵唔到你部手機型號？</h2>
+        <p>WhatsApp 直接俾型號我哋查現貨。其他品牌（Realme、Vivo、Tecno 等）部份型號亦可訂貨，歡迎查詢。</p>
+        <a
+          href={whatsappBase + askPartText}
+          class="btn btn-whatsapp"
+          target="_blank"
+          rel="noopener"
+          onclick="gtag('event','whatsapp_click',{event_category:'contact',event_label:'parts_bottom'})"
+        >💬 WhatsApp 查貨</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .parts-hero {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--paper) 100%);
+    padding: 64px 0 40px;
+  }
+  .parts-hero h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+  .parts-hero .lead {
+    font-size: 1.1rem;
+    color: var(--ink-muted);
+    max-width: 760px;
+    margin-bottom: 24px;
+    line-height: 1.8;
+  }
+  .parts-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .parts-note {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+
+  .parts-section { padding: 32px 0 64px; }
+
+  .brand-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+    position: sticky;
+    top: var(--header-h);
+    background: var(--paper);
+    padding: 12px 0;
+    z-index: 50;
+    border-bottom: 1px solid var(--border);
+  }
+  .brand-tab {
+    background: var(--paper-alt);
+    border: 1px solid var(--border);
+    color: var(--ink-muted);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .brand-tab:hover {
+    background: #fff;
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+  .brand-tab.is-active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+  }
+
+  .brand-panel { display: none; }
+  .brand-panel.is-active { display: block; }
+
+  .brand-header {
+    margin-bottom: 24px;
+  }
+  .brand-header h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .brand-header p {
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+  .brand-count {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--paper);
+  }
+  .parts-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    min-width: 480px;
+  }
+  .parts-table th,
+  .parts-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .parts-table th {
+    background: var(--paper-alt);
+    font-weight: 700;
+    color: var(--ink);
+    position: sticky;
+    top: 0;
+  }
+  .parts-table tbody tr:hover {
+    background: var(--paper-alt);
+  }
+  .parts-table .model-col {
+    font-weight: 600;
+    color: var(--ink);
+    min-width: 180px;
+  }
+  .parts-table td:not(.model-col) {
+    color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .parts-bottom {
+    background: var(--paper-alt);
+    padding: 56px 0;
+    text-align: center;
+  }
+  .parts-bottom h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  .parts-bottom p {
+    color: var(--ink-muted);
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .parts-hero h1 { font-size: 1.8rem; }
+    .parts-hero .lead { font-size: 1rem; }
+    .brand-tabs {
+      gap: 6px;
+      padding: 8px 0;
+      margin-left: -20px;
+      margin-right: -20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+    }
+    .brand-tab {
+      padding: 6px 12px;
+      font-size: 0.85rem;
+    }
+    .parts-table { font-size: 0.85rem; }
+    .parts-table th, .parts-table td { padding: 8px 10px; }
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    const tabs = document.querySelectorAll('.brand-tab');
+    const panels = document.querySelectorAll('.brand-panel');
+    function activate(targetId) {
+      tabs.forEach(t => {
+        const active = t.dataset.target === targetId;
+        t.classList.toggle('is-active', active);
+      });
+      panels.forEach(p => {
+        const active = p.id === targetId;
+        p.classList.toggle('is-active', active);
+        p.setAttribute('aria-hidden', String(!active));
+      });
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+    tabs.forEach(t => {
+      t.addEventListener('click', () => {
+        const target = t.dataset.target;
+        if (target) {
+          activate(target);
+          history.replaceState(null, '', '#' + target);
+        }
+      });
+    });
+    // honor hash on load
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      if (document.getElementById(id)) activate(id);
+    }
+  })();
+</script>

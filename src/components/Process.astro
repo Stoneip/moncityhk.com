@@ -1,15 +1,15 @@
 ---
 const steps = [
-  { num: '1', title: 'WhatsApp 查詢', desc: '透過 WhatsApp 告知手機型號及問題，我哋即時回覆報價。' },
-  { num: '2', title: '到店檢查', desc: '帶手機到深水埗深之都門市，即場檢查報價。' },
-  { num: '3', title: '即場處理', desc: '確認後即場處理，大部分即日完成。' },
+  { num: '1', title: 'WhatsApp 報型號', desc: '俾我哋手機型號同想要嘅零件，即時回覆現貨同價錢。' },
+  { num: '2', title: '到店選購', desc: '深水埗深之都門市試貨、揀原裝定副廠，即場付款。' },
+  { num: '3', title: '即場帶回', desc: '門市現貨即場帶走。批發訂貨可預留現金/轉數快結算。' },
 ];
 ---
 
 <section class="section process-section" id="process">
   <div class="container">
-    <h2 class="section-title">服務流程</h2>
-    <p class="section-subtitle">簡單三步，即場處理</p>
+    <h2 class="section-title">選購流程</h2>
+    <p class="section-subtitle">簡單三步，門市現貨</p>
     <div class="process-steps">
       {steps.map((step, i) => (
         <div class="step">
@@ -58,7 +58,7 @@ const steps = [
     margin-bottom: 16px;
   }
   .step-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
-  .step-desc { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+  .step-desc { color: rgba(255,255,255,0.85); font-size: 0.95rem; }
   .step-arrow {
     position: absolute;
     right: -24px;

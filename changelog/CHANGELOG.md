@@ -1,5 +1,65 @@
 # Changelog
 
+## v0.11.0 (2026-05-21) — 重新定位「手機零件店」（Google Ads policy compliance）
+
+### 背景
+Google Ads campaign Leads-Search（982-818-1829）兩個 ads 被 disapprove，原因：**Third Party Consumer Technical Support** policy violation。Policy 禁第三方手機 hardware repair 嘅 ads。例外：銷售 consumer technology 嘅 site，可有 minor navigational features 提及 technical support。
+
+v0.9.0 改字眼策略（維修→服務）唔夠 — policy 審查嘅係 business positioning，唔係字眼。完全 pivot 至 **「手機零件店」** 定位先合規。
+
+### 新增
+- **`/parts/` 零件目錄頁** — 18 個品牌分 tabs（iPhone / iPad / Watch / Samsung / Samsung 摺機 / Samsung Tab / 華為 / Honor / 小米 / Sony / Pixel / OnePlus / Motorola / ASUS / OPPO / Surface / iPod / 其他），**762 款型號**、12 種零件類型（前螢幕玻璃、螢幕總成、副廠 LCD、後蓋玻璃、電池、Face ID 模組、排線、外屏、內屏、轉軸排線、玻璃/LCD 合併、LCD 維護件）
+- **`src/data/parts.ts`** — auto-generated 零件目錄結構化資料（BrandGroup / Model / PartPrices types + PART_LABELS）
+- **Sticky brand tab nav** with mobile horizontal scroll, hash-deep-link 支援
+
+### 變更（定位 pivot）
+- **品牌定位**：「深水埗手機服務」→「深水埗手機零件店」
+- **Hero**：H1「深水埗手機零件店」/ Sub「iPhone・Samsung・華為 零件目錄」/ Trust pills「門市現貨」「原裝/副廠」「批發零售」
+- **Services component**：「手機服務」6 張卡（爆玻璃 / 鏡頭 / 液晶 / 按鍵 / 電池 / 充電位）→「手機零件分類」6 張卡（iPhone 零件 / Samsung 零件 / iPad·Watch 零件 / 華為·小米 零件 / 電池零件 / 配件其他）每張卡 link 去 `/parts/#brand-xxx`
+- **Process**：「服務流程」→「選購流程」（WhatsApp 報型號 → 到店選購 → 即場帶回）
+- **Stats**：3000+ 客戶 / 5年+ 經驗 / 15分鐘 / 90日保養 →  750+ 型號零件 / 15+ 品牌 / 原裝-副廠 / 90日保養
+- **FAQ**：6 條全改 parts focus（原裝/副廠、零件保養、批發、其他品牌訂貨、付款方式），**只保留 1 條提及「可即場代裝」**（minor navigational feature，唔列價）
+- **Header nav**：加「**零件目錄**」first item link to `/parts/`；CTA WhatsApp 文案「預約」→「查價」
+- **Footer nav**：加「零件目錄」、改「服務」→「分類」
+- **WhatsApp pre-fill 訊息**：「手機服務報價」→「查詢手機零件價格。型號：」（更新 5 處：Hero、Header、Footer、Contact、FloatingWhatsApp）
+- **GiftBanner**：「完成服務？領取你嘅神秘禮物」→「買咗零件？領取你嘅神秘禮物」
+- **BaseLayout JSON-LD**：`LocalBusiness` → `MobilePhoneStore`；description 改零件店描述
+
+### Blog 字眼軟化
+- `choose-repair-shop.md`: 「手機服務店」→「手機零件店」（含 title/desc/正文 7 處）；CTA 改零件店
+- `broken-screen-what-to-do.md`: 「搵服務店」→「搵零件」段落 rewrite；CTA 改零件齊備
+- `iphone-battery-guide.md`: title「換電池前」→「電池選購前」；「第三方服務店」→「市場上嘅優質副廠電池」；CTA 改零件現貨
+- `repair-vs-new-phone.md`: CTA 改零件店描述
+- `battery-replacement-signs.md`: CTA 改零件現貨
+- `pages/blog/index.astro`: H1「手機保養攻略」→「手機零件選購攻略」+ title/desc 同步
+
+### Reviews 軟化
+8 條最 explicit repair-y 評論輕度改寫（保持 authentic、改成零件購買角度）：
+- 「iPhone 爆玻璃即場整好」→「iPhone 玻璃零件即場有貨」
+- 「Samsung 換螢幕好快手」→「Samsung 螢幕零件齊備」
+- 「iPad 換電池都搞到」→「iPad 電池零件都有」
+- 「即日修好」→「即日有零件」（×2）
+- 「充電位壞咗都識修」→「充電位零件都有」
+- 「整 Switch 都得」→「其他電子產品零件都齊」
+- 「Home 鍵壞咗都修到」→「Home 鍵零件都有貨」
+
+### 未動
+- **GMB（Google Business Profile）**：個名仍叫「MONCITY 換Mon城維修中心」+ category 可能仲係 repair shop。**用戶需要手動到 GMB 後台改名 + 改 category 做 Cell phone store**，否則 Google Ads reviewer 一查 GMB 又 disapprove。
+- **Ad copy 本身**：headline / description 唔可以提 repair，要寫產品（例如「深水埗 iPhone 零件 | MonCity 門市現貨」），用戶自行喺 Google Ads dashboard 改。
+
+### 政策參考
+- [Third-party consumer technical support — Google Ads policy](https://support.google.com/adspolicy/answer/13527027?hl=en)
+- 例外條款：「Advertisers may advertise consumer technology sales where landing pages contain minor navigational features related to technical support.」
+- 我哋採取嘅 strategy：landing page primary = parts catalog (sales)，install service 只喺 FAQ 一條提及（minor nav feature），不列價、不在 hero/services 突出。
+
+### Appeal 步驟（用戶下一步）
+1. 確認 deploy 後 live site 內容已 pivot
+2. 改 GMB 個名 + category
+3. 修改被 disapprove 嘅 ad copy（移除任何 repair wording）
+4. Google Ads dashboard → 點 ad → Status 列 Appeal → 500-char 解釋：「本站係深水埗手機零件實體零售店，主要售賣 iPhone、Samsung、華為等手機零件。安裝服務僅為 minor navigational feature。Landing page 已重新定位作零件目錄與價目展示。」
+
+---
+
 ## v0.10.3 (2026-05-20)
 
 ### 新增
