@@ -70,7 +70,7 @@ curl -s https://moncityhk.com/parts/ | grep -oE "<title>[^<]+</title>"
 - **Google Business**: https://maps.app.goo.gl/rtoUcQDWsXnkjuTSA
 
 ## 版本
-v0.11.0
+v0.11.1
 
 ## 重要 — 字眼策略（v0.11.0 起）
 - **全站避免「維修」、「服務」、「即場更換」、「手機服務」字眼**，改用「零件」/「選購」/「現貨」/「保養」/「批發零售」

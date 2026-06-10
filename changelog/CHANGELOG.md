@@ -1,5 +1,24 @@
 # Changelog
 
+## v0.11.1 (2026-06-10) — 加入 SSD / 硬碟 / 儲存配件字眼
+
+### 新增
+- **Services component**：新增第 6 張卡「**SSD 固態硬碟 / 儲存**」— NVMe / SATA SSD、外接硬碟、記憶卡、USB 隨身碟（手機 + 電腦儲存配件）
+- **FAQ**：新增一條「SSD 硬碟有冇貨？支援咩規格？」— 涵蓋 Samsung / WD / Kingston / Crucial 品牌、256GB–4TB 容量、NVMe M.2 / SATA 2.5" / USB Type-C 規格
+
+### 變更
+- **Hero**：副標由「iPhone・Samsung・華為 零件目錄」→「iPhone・Samsung・華為 零件 + SSD 硬碟」；描述加入「SSD 固態硬碟、外接硬碟及儲存配件」
+- **`index.astro`**：title 加「SSD 硬碟批發」、description 加「SSD 固態硬碟、外接硬碟、儲存配件」
+
+### 原因
+擴大商品覆蓋面增加搜尋曝光；繼續避開「維修 / 服務 / 即場更換」等 Google Ads Third Party Consumer Technical Support policy 敏感字眼，純粹做「儲存配件銷售」定位。
+
+### Compliance check
+- Live build「維修 / 手機服務」字眼出現次數：**0**
+- Live build「SSD / 硬碟」字眼出現次數：**5**
+
+---
+
 ## v0.11.0 (2026-05-21) — 重新定位「手機零件店」（Google Ads policy compliance）
 
 ### 背景

@@ -33,6 +33,15 @@ wrangler pages deploy dist/ --project-name=moncityhk-com
 
 ## 版本歷史
 
+### v0.11.1 (2026-06-10)
+- 加入 SSD 固態硬碟 / 外接硬碟 / 儲存配件字眼（Hero、Services 新卡、FAQ 新條、index meta）
+- 擴大商品覆蓋面，繼續避開「維修 / 服務 / 即場更換」敏感字眼
+
+### v0.11.0 (2026-05-21)
+- 重新定位「手機零件店」配合 Google Ads Third Party Consumer Technical Support policy
+- 新增 `/parts/` 零件目錄頁，18 品牌 × 762 型號 × 12 零件類型
+- Hero / Services / Process / Stats / FAQ / Header / Footer / Blog 全面 pivot 至零件店
+
 ### v0.10.3 (2026-05-20)
 - 加入 Google Ads conversion tracking（AW-17523347184）
 - 4 個 conversion events：Page View、WhatsApp Click、Phone Click、Email Click
