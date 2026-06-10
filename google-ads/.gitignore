@@ -1,0 +1,6 @@
+google-ads.yaml
+client_secret.json
+*.pem
+venv/
+__pycache__/
+*.pyc
