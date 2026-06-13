@@ -38,4 +38,4 @@ date: 2026-04-28
 
 ---
 
-**MonCity** 手機電池零件現貨，iPhone、Samsung、華為各品牌齊備，90 日保養。深水埗深之都，[WhatsApp 查貨](https://wa.me/85269960711)。
+**MonCity** 手機電池零件現貨，iPhone、Samsung、華為各品牌齊備。深水埗深之都，[WhatsApp 查貨](https://wa.me/85269960711)。

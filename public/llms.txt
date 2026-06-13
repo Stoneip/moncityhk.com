@@ -24,5 +24,5 @@
 ## 頁面
 
 - [首頁](https://moncityhk.com/): 服務總覽、服務流程、顧客評價、聯絡資訊
-- [Blog](https://moncityhk.com/blog/): 手機保養攻略及實用知識
+- [Blog](https://moncityhk.com/blog/): 手機零件選購攻略及實用知識
 - [私隱政策](https://moncityhk.com/privacy/): 個人資料收集及使用政策
