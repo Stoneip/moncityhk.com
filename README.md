@@ -33,6 +33,10 @@ wrangler pages deploy dist/ --project-name=moncityhk-com
 
 ## 版本歷史
 
+### v0.11.2 (2026-06-14)
+- 全站清除「90日 / 保養」字眼（Stats card、FAQ「零件有冇保養？」、Reviews 梁小姐 quote、4 篇 blog CTA、`choose-repair-shop` H2 改寫做「零件來源同品質」、`llms.txt` Blog 描述）
+- 避免「保養」被視為 after-sale service / repair commitment 觸發 Google Ads policy
+
 ### v0.11.1 (2026-06-10)
 - 加入 SSD 固態硬碟 / 外接硬碟 / 儲存配件字眼（Hero、Services 新卡、FAQ 新條、index meta）
 - 擴大商品覆蓋面，繼續避開「維修 / 服務 / 即場更換」敏感字眼

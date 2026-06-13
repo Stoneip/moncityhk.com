@@ -70,10 +70,11 @@ curl -s https://moncityhk.com/parts/ | grep -oE "<title>[^<]+</title>"
 - **Google Business**: https://maps.app.goo.gl/rtoUcQDWsXnkjuTSA
 
 ## 版本
-v0.11.1
+v0.11.2
 
 ## 重要 — 字眼策略（v0.11.0 起）
-- **全站避免「維修」、「服務」、「即場更換」、「手機服務」字眼**，改用「零件」/「選購」/「現貨」/「保養」/「批發零售」
+- **全站避免「維修」、「服務」、「即場更換」、「手機服務」、「保養」、「90日」字眼**，改用「零件」/「選購」/「現貨」/「批發零售」
+- **v0.11.2 起全站移除任何「保養 / warranty」承諾字眼**（包括 FAQ「零件有冇保養？」整條、blog CTA「90 日保養」、Stats「90日 / 零件保養」card、Reviews 客戶 quote、llms.txt 「保養攻略」）— 因為承諾保養會被視為 after-sale service / repair commitment，仍可能撞 Google Ads policy 紅線
 - **核心定位**：手機零件店（parts store），唔係 repair shop
 - 原因：Google Ads **Third Party Consumer Technical Support** policy 禁第三方 hardware repair ads。例外：consumer technology sales 嘅 site 可有 minor navigational features
 - 「即場代裝」字眼**只可出現喺 FAQ 一條**，唔列價、唔放 hero/services

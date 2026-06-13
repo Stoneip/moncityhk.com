@@ -1,5 +1,25 @@
 # Changelog
 
+## v0.11.2 (2026-06-14) — 全站清除「90日 / 保養」字眼
+
+### 移除
+- **Stats**：「90日 / 零件保養」card（4 cols → 3 cols）
+- **FAQ**：「零件有冇保養？」整條 entry 移除
+- **Reviews**：梁小姐「有90日保養，好放心」quote 改寫做「價錢清楚，零件款式又齊」
+- **Blog CTA**：4 篇 blog（`iphone-battery-guide` / `battery-replacement-signs` / `broken-screen-what-to-do` / `choose-repair-shop`）CTA 段落「90 日保養」字眼移除
+- **`choose-repair-shop.md`**：H2「1. 有冇保養？」整段改寫做「1. 零件來源同品質」（原裝/OEM/副廠分類、貨源、單據規格），總結「保養、價錢、口碑」→「品質、價錢、口碑」
+- **`broken-screen-what-to-do.md`**：bullet「選擇有保養嘅零件店」→「選擇供貨穩定、有單據嘅零件店」
+- **`public/llms.txt`**：Blog 描述「手機保養攻略」→「手機零件選購攻略」
+
+### 原因
+「保養 / warranty」雖然係正常零售常見字眼，但 Google Ads Third Party Consumer Technical Support policy 對「after-sale service / repair commitment」非常敏感，承諾保養可能會被 reviewer 解讀做 implied repair service offering。為求穩陣，全站去除任何 warranty 承諾。
+
+### Compliance check
+- Live build「90日 / 保養」字眼出現次數：**0**
+- 保留「現貨 / 原裝 / 副廠 / 批發零售 / 單據 / Google 評價」等中性銷售字眼
+
+---
+
 ## v0.11.1 (2026-06-10) — 加入 SSD / 硬碟 / 儲存配件字眼
 
 ### 新增
